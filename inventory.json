@@ -1,0 +1,29 @@
+[
+    {
+        "product_id": "P001",
+        "name": "Laptop",
+        "price": 1299.0,
+        "stock_quantity": 8,
+        "supplier": {
+            "supplier_id": "S001",
+            "name": "TechSource Pte Ltd",
+            "contact_email": "sales@techsource.com"
+        },
+        "type": "physical",
+        "weight_kg": 1.8
+    },
+    {
+        "product_id": "D001",
+        "name": "Python E-Book",
+        "price": 19.9,
+        "stock_quantity": 95,
+        "supplier": {
+            "supplier_id": "S001",
+            "name": "TechSource Pte Ltd",
+            "contact_email": "sales@techsource.com"
+        },
+        "type": "digital",
+        "file_size_mb": 4.5,
+        "download_url": "https://example.com/python-ebook"
+    }
+]
