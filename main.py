@@ -13,7 +13,7 @@ def show_product_details(product: Product) -> None:
 
 
 def main() -> None:
-    # ===== Section 2: association (Supplier - Product) =====
+    # ===== Association (Supplier - Product) =====
     print("\n=== 2. Association: Supplier and Product ===")
     supplier = Supplier("S001", "TechSource Pte Ltd", "sales@techsource.com")
     laptop = PhysicalProduct("P001", "Laptop", 1299.00, 10, supplier, 1.8)
@@ -30,7 +30,7 @@ def main() -> None:
     laptop.supplier.display_information()
     ebook.supplier.display_information()
 
-    # ===== Section 3: aggregation (Inventory - Product) =====
+    # ===== Aggregation (Inventory - Product) =====
     print("\n=== 3. Aggregation: Inventory and Product ===")
     mouse = PhysicalProduct("P002", "Wireless Mouse", 29.90, 50,
                             laptop.supplier, 0.1)   # created BEFORE any inventory
@@ -51,7 +51,7 @@ def main() -> None:
     inventory_b.display_all_products()
     print("Same object in B as before?", inventory_b.find_product("P002") is mouse)
 
-    # ===== Section 4: composition (Order - OrderLine) =====
+    # ===== Composition (Order - OrderLine) =====
     print("\n=== 4. Composition: Order and OrderLine ===")
     order1 = Order("O001")
     order1.add_order_line(laptop, 1)
@@ -73,7 +73,7 @@ def main() -> None:
     order1.display_order()
     print("Mouse product still exists:", mouse.name)
 
-    # ===== Section 6: LSP =====
+    # ===== LSP =====
     print("\n=== 6. Substitutability ===")
     show_product_details(laptop)
     show_product_details(ebook)
@@ -83,14 +83,14 @@ def main() -> None:
     inventory_a.find_product("P001").update_stock(-2)
     inventory_a.display_all_products()
 
-    # ===== Section 7: polymorphism =====
+    # ===== Polymorphism =====
     print("\n=== 7. Polymorphism ===")
     # PREDICT FIRST: what will get_fulfilment_info() print for each product?
     for product in inventory_a.products:
         product.display_information()
         print(f"   Fulfilment: {product.get_fulfilment_info()}")
 
-    # ===== Persistence (from Lab 7) =====
+    # ===== Persistence =====
     print("\n=== Save and reload ===")
     inventory_a.save_to_file("inventory.json")
     reloaded = Inventory("Reloaded")
